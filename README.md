@@ -8,7 +8,7 @@ Studies whether a tabular clinical risk model is accurate, calibrated, interpret
 changing data conditions — instead of stopping at accuracy.</p>
 
 <p align="center">
-  <a href="https://github.com/YOUR-GITHUB-USERNAME/medpredict-research/actions/workflows/ci.yml"><img src="https://github.com/YOUR-GITHUB-USERNAME/medpredict-research/actions/workflows/ci.yml/badge.svg" alt="CI"/></a>
+  <a href="https://github.com/Padu28/medpredict-research/actions/workflows/ci.yml"><img src="https://github.com/Padu28/medpredict-research/actions/workflows/ci.yml/badge.svg" alt="CI"/></a>
   <img src="https://img.shields.io/badge/python-3.11%20|%203.12-3776AB?logo=python&logoColor=white" alt="Python"/>
   <img src="https://img.shields.io/badge/scikit--learn-1.6+-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
   <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" alt="FastAPI"/>
@@ -99,7 +99,7 @@ Full report: [`reports/evaluation_report.md`](reports/evaluation_report.md) · M
 <summary><b>Windows (PowerShell)</b></summary>
 
 ```powershell
-git clone https://github.com/YOUR-GITHUB-USERNAME/medpredict-research.git
+git clone https://github.com/Padu28/medpredict-research.git
 cd medpredict-research
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -114,7 +114,7 @@ streamlit run dashboard/app.py --server.port 8504      # → http://localhost:85
 <summary><b>macOS / Linux</b></summary>
 
 ```bash
-git clone https://github.com/YOUR-GITHUB-USERNAME/medpredict-research.git && cd medpredict-research
+git clone https://github.com/Padu28/medpredict-research.git && cd medpredict-research
 python3.12 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt && pip install -e .
 python -m medpredict.cli pipeline
@@ -198,11 +198,11 @@ calibration monotonicity, subgroup suppression, shift tests, uncertainty band, A
 ## 🔗 Related projects
 | Project | Focus |
 |---|---|
-| 🛰️ [SentinelML](https://github.com/YOUR-GITHUB-USERNAME/sentinelml) | Drift monitoring & adaptive retraining |
-| 🛡️ [ThreatSense](https://github.com/YOUR-GITHUB-USERNAME/threatsense) | Explainable network anomaly detection |
-| 🔬 [VisionGuard AI](https://github.com/YOUR-GITHUB-USERNAME/visionguard-ai) | Robust visual defect inspection |
+| 🛰️ [SentinelML](https://github.com/Padu28/sentinelml) | Drift monitoring & adaptive retraining |
+| 🛡️ [ThreatSense](https://github.com/Padu28/threatsense) | Explainable network anomaly detection |
+| 🔬 [VisionGuard AI](https://github.com/Padu28/visionguard-ai) | Robust visual defect inspection |
 
 ## 👤 Author
-**Padmashree Shah** · [GitHub](https://github.com/YOUR-GITHUB-USERNAME) · [LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN)
+**Padmashree Shah** · [GitHub](https://github.com/Padu28)
 
 <sub>MIT licensed · educational, non-clinical research prototype · not affiliated with or endorsed by Microsoft.</sub>
