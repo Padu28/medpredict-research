@@ -1,0 +1,20 @@
+# ---------------------------------------------------------------
+# MedPredict Research — dataset configuration
+# ---------------------------------------------------------------
+# EDUCATIONAL USE ONLY. The default cohort is SYNTHETIC and contains no real
+# patient data. `breast_cancer` uses scikit-learn's bundled Wisconsin dataset
+# (no subgroup attributes, so fairness/site analyses are skipped).
+source: synthetic            # synthetic | breast_cancer | csv
+csv_path: data/raw/cohort.csv
+
+synthetic:
+  n_patients: 6000
+  max_encounters_per_patient: 3
+  sites: {A: 0.45, B: 0.35, C: 0.20}
+  start_date: "2022-01-01"
+  end_date: "2025-12-31"
+  seed: 42
+
+id_col: patient_id
+time_col: discharge_date
+site_col: site

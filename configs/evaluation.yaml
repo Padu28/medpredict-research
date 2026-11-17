@@ -1,0 +1,42 @@
+# ---------------------------------------------------------------
+# MedPredict Research — evaluation protocol
+# ---------------------------------------------------------------
+random_state: 42
+
+split:
+  strategy: temporal_patient     # train on earlier discharges; patients never span splits
+  train_end: "2024-06-30"
+  validation_end: "2025-03-31"   # later discharges → test
+
+models:
+  logistic_regression: {C: 0.5, max_iter: 2000}
+  random_forest: {n_estimators: 400, max_depth: 8, min_samples_leaf: 20, n_jobs: -1}
+  hist_gradient_boosting: {max_iter: 250, learning_rate: 0.05, max_depth: 4, l2_regularization: 1.0}
+
+calibration_methods: [uncalibrated, sigmoid, isotonic]
+calibration_bins: 10
+
+threshold:
+  # Research objective (stated up front, not 0.5 by default): flag patients for
+  # follow-up with sensitivity ≥ 0.80, chosen on validation data.
+  target_sensitivity: 0.80
+
+bootstrap:
+  n: 300
+  ensemble_models: 30           # bootstrap LR ensemble for per-patient uncertainty intervals
+
+fairness:
+  min_group_size: 50            # smaller groups are suppressed, not reported
+
+shift_tests:
+  missingness_rates: [0.0, 0.1, 0.2, 0.3, 0.4]
+  missingness_columns: [hba1c, glucose, creatinine, hemoglobin]
+  covariate_shifts:
+    older_population: {age: 8}
+    higher_glucose: {glucose: 25}
+  site_holdout: C               # train on other sites, test on this one
+
+storage:
+  database: data/processed/medpredict.db
+  reports_dir: reports
+  models_dir: models

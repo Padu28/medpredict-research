@@ -1,0 +1,388 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-11-17T13:56:42+00:00",
+  "disclaimer": "Educational research prototype. Not a diagnostic device, clinical decision system or substitute for a licensed clinician. Do not use for real patient-care decisions.",
+  "audit": {
+    "n_rows": 11001,
+    "n_patients": 6000,
+    "prevalence": 0.27824743205163166,
+    "missingness": {
+      "hba1c": 0.11744386873920552,
+      "creatinine": 0.02863376056722116
+    },
+    "duplicate_rows": 0,
+    "ranges": {
+      "age": [
+        18.6,
+        65.3,
+        99.0
+      ],
+      "bmi": [
+        15.0,
+        28.5,
+        48.2
+      ],
+      "systolic_bp": [
+        80.0,
+        133.0,
+        202.0
+      ],
+      "glucose": [
+        16.0,
+        97.0,
+        236.0
+      ],
+      "hba1c": [
+        3.2,
+        5.7,
+        12.0
+      ],
+      "creatinine": [
+        0.4,
+        0.975,
+        3.69
+      ],
+      "hemoglobin": [
+        7.0,
+        13.3,
+        19.0
+      ],
+      "length_of_stay": [
+        1.0,
+        4.0,
+        33.0
+      ],
+      "prior_admissions_12m": [
+        0.0,
+        1.0,
+        8.0
+      ],
+      "medication_count": [
+        0.0,
+        5.0,
+        19.0
+      ]
+    },
+    "leakage_columns_present": [
+      "followup_calls_30d",
+      "readmission_cost"
+    ],
+    "date_range": [
+      "2022-01-01 00:00:00",
+      "2025-12-30 00:00:00"
+    ],
+    "prevalence_by_site": {
+      "A": 0.2451,
+      "B": 0.263,
+      "C": 0.3814
+    }
+  },
+  "splits": {
+    "train": {
+      "n": 7776,
+      "patients": 3902,
+      "prevalence": 0.26710390946502055,
+      "start": "2022-01-01",
+      "end": "2025-12-29"
+    },
+    "validation": {
+      "n": 2074,
+      "patients": 1177,
+      "prevalence": 0.3042430086788814,
+      "start": "2024-07-01",
+      "end": "2025-12-30"
+    },
+    "test": {
+      "n": 1151,
+      "patients": 921,
+      "prevalence": 0.30668983492615115,
+      "start": "2025-04-01",
+      "end": "2025-12-29"
+    }
+  },
+  "primary": {
+    "model": "logistic_regression",
+    "calibration": "isotonic",
+    "threshold": 0.20930232558139536
+  },
+  "accuracy_only_choice": {
+    "model": "hist_gradient_boosting",
+    "calibration": "isotonic",
+    "accuracy": 0.7141615986099045
+  },
+  "results": [
+    {
+      "model": "logistic_regression",
+      "calibration": "uncalibrated",
+      "auroc": 0.6831348910519925,
+      "pr_auc": 0.5060464378970704,
+      "brier": 0.19387072296868038,
+      "log_loss": 0.5753891627008322,
+      "ece": 0.04179248247206988,
+      "cal_slope": 0.8985319230979271,
+      "cal_intercept": 0.11905466718821661,
+      "mean_predicted": 0.2672906117330119,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6491448743979844,
+        0.7180081356453298
+      ],
+      "brier_ci": [
+        0.18015468329512568,
+        0.20576968771834467
+      ],
+      "accuracy_at_0.5": 0.7080799304952216,
+      "val_log_loss": 0.5658920077777895,
+      "val_auroc": 0.693345545960443
+    },
+    {
+      "model": "logistic_regression",
+      "calibration": "sigmoid",
+      "auroc": 0.6831348910519925,
+      "pr_auc": 0.5060464378970704,
+      "brier": 0.19251320129688096,
+      "log_loss": 0.5708098179401442,
+      "ece": 0.0296457388438702,
+      "cal_slope": 0.9509608676529814,
+      "cal_intercept": -0.0034236768515662356,
+      "mean_predicted": 0.3001083959397565,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6491448743979844,
+        0.7180081356453298
+      ],
+      "brier_ci": [
+        0.17991716062579965,
+        0.20338122824732685
+      ],
+      "accuracy_at_0.5": 0.7054735013032146,
+      "val_log_loss": 0.5627874275006267,
+      "val_auroc": 0.693345545960443
+    },
+    {
+      "model": "logistic_regression",
+      "calibration": "isotonic",
+      "auroc": 0.6778454635171498,
+      "pr_auc": 0.4811725369507342,
+      "brier": 0.19399115524906688,
+      "log_loss": 0.5830437841048566,
+      "ece": 0.028981350618297208,
+      "cal_slope": 0.7551477853643648,
+      "cal_intercept": -0.15322507017232426,
+      "mean_predicted": 0.299653388806879,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6447308182013761,
+        0.7123501040357226
+      ],
+      "brier_ci": [
+        0.1818253627704019,
+        0.20507181519845827
+      ],
+      "accuracy_at_0.5": 0.7054735013032146,
+      "val_log_loss": 0.5549235320634655,
+      "val_auroc": 0.7009356058484426
+    },
+    {
+      "model": "random_forest",
+      "calibration": "uncalibrated",
+      "auroc": 0.6937918450517229,
+      "pr_auc": 0.5163454635836738,
+      "brier": 0.19347544520520712,
+      "log_loss": 0.5707029639178303,
+      "ece": 0.04360539717246066,
+      "cal_slope": 1.3520474301114764,
+      "cal_intercept": 0.5305952654433613,
+      "mean_predicted": 0.2691538279295972,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6605100771520687,
+        0.7309139564313586
+      ],
+      "brier_ci": [
+        0.1815990584643269,
+        0.20533624413792745
+      ],
+      "accuracy_at_0.5": 0.7124239791485665,
+      "val_log_loss": 0.5706087921803419,
+      "val_auroc": 0.6867109703876739
+    },
+    {
+      "model": "random_forest",
+      "calibration": "sigmoid",
+      "auroc": 0.6937918450517229,
+      "pr_auc": 0.5163454635836738,
+      "brier": 0.19062729037047393,
+      "log_loss": 0.5645706913359966,
+      "ece": 0.02292658151228584,
+      "cal_slope": 1.030018069310474,
+      "cal_intercept": 0.037195115147941084,
+      "mean_predicted": 0.30406735120196426,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6605100771520687,
+        0.7309139564313586
+      ],
+      "brier_ci": [
+        0.17891427415065866,
+        0.2019299240557593
+      ],
+      "accuracy_at_0.5": 0.7132927888792354,
+      "val_log_loss": 0.565005491592864,
+      "val_auroc": 0.6867109703876739
+    },
+    {
+      "model": "random_forest",
+      "calibration": "isotonic",
+      "auroc": 0.6920026695634269,
+      "pr_auc": 0.4911792976828726,
+      "brier": 0.19103042714979634,
+      "log_loss": 0.5650941896117828,
+      "ece": 0.022404899998268262,
+      "cal_slope": 0.9343249794423697,
+      "cal_intercept": -0.033130287216167884,
+      "mean_predicted": 0.30340380149752066,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.658570395332283,
+        0.7264416070217953
+      ],
+      "brier_ci": [
+        0.17905113221555527,
+        0.20233368029099194
+      ],
+      "accuracy_at_0.5": 0.7124239791485665,
+      "val_log_loss": 0.5576508902389997,
+      "val_auroc": 0.693533897178905
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "calibration": "uncalibrated",
+      "auroc": 0.6815125632778831,
+      "pr_auc": 0.49055203296900873,
+      "brier": 0.19583950931628463,
+      "log_loss": 0.5802589102982695,
+      "ece": 0.05772569557434954,
+      "cal_slope": 0.7642097991010771,
+      "cal_intercept": -0.005699959070342191,
+      "mean_predicted": 0.2671579920334397,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6474036056231686,
+        0.7177292886261624
+      ],
+      "brier_ci": [
+        0.18230777170496892,
+        0.20810539903893388
+      ],
+      "accuracy_at_0.5": 0.7054735013032146,
+      "val_log_loss": 0.5756025552004639,
+      "val_auroc": 0.68172597808097
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "calibration": "sigmoid",
+      "auroc": 0.6815125632778831,
+      "pr_auc": 0.49055203296900873,
+      "brier": 0.19356328128455697,
+      "log_loss": 0.5722757430726425,
+      "ece": 0.033450438729163645,
+      "cal_slope": 0.9985410912840136,
+      "cal_intercept": 0.022524097280445396,
+      "mean_predicted": 0.3021354199408268,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6474036056231686,
+        0.7177292886261624
+      ],
+      "brier_ci": [
+        0.18197474593936092,
+        0.2039299626550147
+      ],
+      "accuracy_at_0.5": 0.7080799304952216,
+      "val_log_loss": 0.5685923966280279,
+      "val_auroc": 0.68172597808097
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "calibration": "isotonic",
+      "auroc": 0.6800624081450084,
+      "pr_auc": 0.47502496324707183,
+      "brier": 0.19466297333662513,
+      "log_loss": 0.5940124751859545,
+      "ece": 0.016837266349492792,
+      "cal_slope": 0.6722731525874356,
+      "cal_intercept": -0.23680669266640483,
+      "mean_predicted": 0.3028681679023608,
+      "observed_rate": 0.30668983492615115,
+      "auroc_ci": [
+        0.6464676387809111,
+        0.7159534463901611
+      ],
+      "brier_ci": [
+        0.18241981787616257,
+        0.20435450941477937
+      ],
+      "accuracy_at_0.5": 0.7141615986099045,
+      "val_log_loss": 0.562068055923291,
+      "val_auroc": 0.6884692811792654
+    }
+  ],
+  "primary_metrics": {
+    "model": "logistic_regression",
+    "calibration": "isotonic",
+    "auroc": 0.6778454635171498,
+    "pr_auc": 0.4811725369507342,
+    "brier": 0.19399115524906688,
+    "log_loss": 0.5830437841048566,
+    "ece": 0.028981350618297208,
+    "cal_slope": 0.7551477853643648,
+    "cal_intercept": -0.15322507017232426,
+    "mean_predicted": 0.299653388806879,
+    "observed_rate": 0.30668983492615115,
+    "auroc_ci": [
+      0.6447308182013761,
+      0.7123501040357226
+    ],
+    "brier_ci": [
+      0.1818253627704019,
+      0.20507181519845827
+    ],
+    "accuracy_at_0.5": 0.7054735013032146,
+    "val_log_loss": 0.5549235320634655,
+    "val_auroc": 0.7009356058484426,
+    "at_threshold": {
+      "threshold": 0.20930232558139536,
+      "sensitivity": 0.7903682719546742,
+      "specificity": 0.41729323308270677,
+      "precision": 0.375,
+      "f1": 0.5086599817684594,
+      "flag_rate": 0.6463944396177237,
+      "tp": 279,
+      "fp": 465,
+      "fn": 74,
+      "tn": 333
+    }
+  },
+  "disparities": {
+    "age_band": {
+      "sensitivity_gap": 0.823529411764706,
+      "auroc_gap": 0.11472400877363054,
+      "max_abs_calibration_gap": 0.11632758265545579
+    },
+    "sex": {
+      "sensitivity_gap": 0.02795976441003245,
+      "auroc_gap": 0.012057415782348091,
+      "max_abs_calibration_gap": 0.021405143731677012
+    },
+    "site": {
+      "sensitivity_gap": 0.06002962500974507,
+      "auroc_gap": 0.027912474124162312,
+      "max_abs_calibration_gap": 0.08691518200796966
+    }
+  },
+  "target_definition": "Unplanned readmission within 30 days of discharge (binary). Prediction time is the moment of discharge; only information available at or before discharge may be used as a feature.",
+  "uncertainty": {
+    "mean_interval_width": 0.07025693878312889
+  }
+}

@@ -1,0 +1,23 @@
+# ---------------------------------------------------------------
+# MedPredict Research — target & prediction-time definition
+# ---------------------------------------------------------------
+target: readmit_30d
+definition: >
+  Unplanned readmission within 30 days of discharge (binary). Prediction time is
+  the moment of discharge; only information available at or before discharge
+  may be used as a feature.
+prediction_time: discharge
+
+numeric_features: [age, bmi, systolic_bp, glucose, hba1c, creatinine, hemoglobin, length_of_stay,
+                   prior_admissions_12m, medication_count]
+categorical_features: [sex, admission_type, smoking_status, discharge_disposition]
+
+# Variables known only AFTER the prediction time. They are present in the raw
+# cohort on purpose and must be excluded — a test enforces this.
+leakage_columns: [followup_calls_30d, readmission_cost]
+
+# Protected / subgroup attributes used for EVALUATION (not necessarily as features)
+subgroups:
+  sex: sex
+  age_band: age_band
+  site: site
